@@ -4,7 +4,8 @@ import unittest
 
 
 class Save_file(unittest.TestCase):
-    """wood保存接口"""
+    """保存作品"""
+
     def test_save(self):
         """ 正常数据进行保存操作"""
         url_login = 'https://api.codemao.cn/tiger/accounts/login'

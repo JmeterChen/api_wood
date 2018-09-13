@@ -4,7 +4,7 @@ import unittest
 
 class Open_file(unittest.TestCase):
 
-    """先调用wood登录接口"""
+    """打开云端作品"""
     def test_open_file(self):
         """正常登录-账号密码正确"""
         url_login = 'https://api.codemao.cn/tiger/accounts/login'
@@ -19,7 +19,7 @@ class Open_file(unittest.TestCase):
         res_cookie = res_login.cookies.get('authorization')
         # print(res_cookie)
 
-        url = 'https://api.codemao.cn/tiger/wood/works/1840892'
+        url = 'https://api.codemao.cn/tiger/wood/works/1840852'
         '''将上面获取的cookie加入到请求头'''
         headers['authorization'] = res_cookie
         res = requests.get(url=url, headers=headers)
@@ -27,5 +27,5 @@ class Open_file(unittest.TestCase):
         print(type(result))
         # self.assertEqual(res.status_code, 200)
         self.assertEqual(res.status_code, 200)
-        self.assertDictEqual("b-2", result["name"])
+        self.assertEqual("b-1", result["name"])
 

@@ -4,7 +4,7 @@ import requests
 
 
 class Delete_file(unittest.TestCase):
-
+    """删除线上作品"""
     def test_delete_file(self):
         """正常重命名线上作品操作"""
         url_login = 'https://api.codemao.cn/tiger/accounts/login'
@@ -24,13 +24,25 @@ class Delete_file(unittest.TestCase):
         res_workid_list = requests.get(url=url_workid, headers=headers)
         result_workid_list = res_workid_list.json()
         # print(result_workid)
-        if result_workid_list != []:
+        """"""
+        if len(result_workid_list) >= 2:
             result_workid = str(result_workid_list[0]["work_id"])
+            result_workid_second = (result_workid_list[1]["work_id"])
+            url = "https://api.codemao.cn/tiger/work/" + result_workid + "/permanently"
+            res = requests.delete(url=url, headers=headers)
+            self.assertEqual(res.status_code, 204)
+
+            res_workid_list = requests.get(url=url_workid, headers=headers)
+            result_workid_list = res_workid_list.json()
+            self.assertEqual(result_workid_list[0]["work_id"], result_workid_second)
+        elif len(result_workid_list) == 1:
+            result_workid = str(result_workid_list[0]["work_id"])
+            url = "https://api.codemao.cn/tiger/work/" + result_workid + "/permanently"
+            res = requests.delete(url=url, headers=headers)
+            self.assertEqual(res.status_code, 204)
+            res_workid_list = requests.get(url=url_workid, headers=headers)
+            result_workid_list = res_workid_list.json()
+            self.assertEqual(len(result_workid_list), 0)
         else:
             raise ("没有作品可以用来删除！")
 
-        url = "https://api.codemao.cn/tiger/work/" + result_workid + "/permanently"
-        res = requests.delete(url=url, headers=headers)
-        self.assertEqual(res.status_code, 204)
-        res_workid_list = requests.get(url=url_workid, headers=headers)
-        result_workid_list = res_workid_list.json()

@@ -3,8 +3,8 @@ import requests
 import unittest
 
 class Search_file(unittest.TestCase):
+    """搜索云端作品"""
 
-    """先调用wood登录接口"""
     def test_search_file(self):
         """正常登录-账号密码正确"""
         url_login = 'https://api.codemao.cn/tiger/accounts/login'

@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>测试报告</title>
+    <title>Wood_apiAutoTest</title>
     <meta name="generator" content="HTMLTestRunner 0.8.2.1"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
@@ -121,22 +121,22 @@ function html_escape(s) {
 }
 </script>
 <div class='heading'>
-<h1 style="font-family: Microsoft YaHei">测试报告</h1>
-<p class='attribute' style="font-size:16px;"><strong>测试人员 : </strong> </p>
-<p class='attribute' style="font-size:16px;"><strong>开始时间 : </strong> 2018-09-12 20:06:47</p>
-<p class='attribute' style="font-size:16px;"><strong>合计耗时 : </strong> 0:00:00.93</p>
-<p class='attribute' style="font-size:16px;"><strong>测试结果 : </strong> 共 1，失败 1</p>
+<h1 style="font-family: Microsoft YaHei">Wood_apiAutoTest</h1>
+<p class='attribute' style="font-size:16px;"><strong>测试人员 : </strong> ChenBolin</p>
+<p class='attribute' style="font-size:16px;"><strong>开始时间 : </strong> 2018-09-13 00:44:06</p>
+<p class='attribute' style="font-size:16px;"><strong>合计耗时 : </strong> 0:00:05.53</p>
+<p class='attribute' style="font-size:16px;"><strong>测试结果 : </strong> 共 17，通过 17</p>
 
-<p class='description'></p>
+<p class='description'>WoodAPI_demo</p>
 </div>
 
 
 
 <p id='show_detail_line'>
-<a class="btn btn-primary" href='javascript:showCase(0)'>通过率 0.00% </a>
-<a class="btn btn-danger" href='javascript:showCase(1)'>失败 1 </a>
-<a class="btn btn-success" href='javascript:showCase(2)'>成功 0 </a>
-<a class="btn btn-info" href='javascript:showCase(3)'>所有 1 </a>
+<a class="btn btn-primary" href='javascript:showCase(0)'>通过率 100.00% </a>
+<a class="btn btn-danger" href='javascript:showCase(1)'>失败 0 </a>
+<a class="btn btn-success" href='javascript:showCase(2)'>成功 17 </a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有 17 </a>
 </p>
 <table id='result_table' class="table table-condensed table-bordered table-hover" style="font-size:14px;">
 <colgroup>
@@ -156,31 +156,99 @@ function html_escape(s) {
     <td>详细</td>
 </tr>
 
-<tr class='failClass warning'>
-    <td>Delete_file.Delete_file</td>
+<tr class='passClass warning'>
+    <td>Delete_file.Delete_file: 删除线上作品</td>
+    <td class="text-center">1</td>
     <td class="text-center">1</td>
     <td class="text-center">0</td>
-    <td class="text-center">1</td>
     <td class="text-center">0</td>
     <td class="text-center"><a href="javascript:showClassDetail('c1',1)" class="detail" id='c1'>详细</a></td>
 </tr>
 
-<tr id='ft1_1' class='none'>
-    <td class='failCase'><div class='testcase'>test_delete_file: 正常重命名线上作品操作</div></td>
+<tr id='pt1_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_delete_file: 正常重命名线上作品操作</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>Get_filelist.Get_filelist: 拉取云端作品列表</td>
+    <td class="text-center">2</td>
+    <td class="text-center">2</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c2',2)" class="detail" id='c2'>详细</a></td>
+</tr>
+
+<tr id='pt2_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_get_filelist: 正常数据进行拉取作品列表操作</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt2_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_get_filelist02</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>Login.Login: wood登录接口</td>
+    <td class="text-center">3</td>
+    <td class="text-center">3</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c3',3)" class="detail" id='c3'>详细</a></td>
+</tr>
+
+<tr id='pt3_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_wood_login: 正常登录-账号密码正确</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt3_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_wood_login02: 异常登录-账号/密码为空</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt3_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_wood_login03: 异常登录-账号/密码错误</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>Logout.Logout: 退出登录接口</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c4',1)" class="detail" id='c4'>详细</a></td>
+</tr>
+
+<tr id='pt4_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_logout</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>Open_file.Open_file: 打开云端作品</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c5',1)" class="detail" id='c5'>详细</a></td>
+</tr>
+
+<tr id='pt5_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_open_file: 正常登录-账号密码正确</div></td>
     <td colspan='5' align='center'>
     <!--默认收起错误信息 -Findyou
-    <button id='btn_ft1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_1'>失败</button>
-    <div id='div_ft1_1' class="collapse">  -->
+    <button id='btn_pt5_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt5_1'>通过</button>
+    <div id='div_pt5_1' class="collapse">  -->
 
     <!-- 默认展开错误信息 -Findyou -->
-    <button id='btn_ft1_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_1'>失败</button>
-    <div id='div_ft1_1' class="collapse in">
+    <button id='btn_pt5_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt5_1'>通过</button>
+    <div id='div_pt5_1' class="collapse in">
     <pre>
     
-Traceback (most recent call last):
-  File "E:\ChenBolin\hit3\Wood\Delete_file.py", line 38, in test_delete_file
-    self.assertEqual(len(result_workid_list)+1, work_id_len)
-AssertionError: 16 != 15
+&lt;type 'dict'&gt;
 
 
     </pre>
@@ -188,13 +256,85 @@ AssertionError: 16 != 15
     </td>
 </tr>
 
+<tr class='passClass warning'>
+    <td>Rename_file.Rename_file: 正常重命名线上作品操作</td>
+    <td class="text-center">2</td>
+    <td class="text-center">2</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c6',2)" class="detail" id='c6'>详细</a></td>
+</tr>
+
+<tr id='pt6_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_rename_file</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt6_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_rename_file02: 作品名重命名为空</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>Save_file.Save_file: 保存作品</td>
+    <td class="text-center">6</td>
+    <td class="text-center">6</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c7',6)" class="detail" id='c7'>详细</a></td>
+</tr>
+
+<tr id='pt7_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_save: 正常数据进行保存操作</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt7_2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_save02: 使用无效cookie进行保存操作</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt7_3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_save03: 作品长度为0，进行保存操作</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt7_4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_save04: 作品长度超过限制进行保存操作</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt7_5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_save06: 作品类型为2(硬件作品)进行保存</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr id='pt7_6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_save07: 异常作品类型进行保存操作</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>Search_file.Search_file: 搜索云端作品</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c8',1)" class="detail" id='c8'>详细</a></td>
+</tr>
+
+<tr id='pt8_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_search_file: 正常登录-账号密码正确</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+</tr>
+
 <tr id='total_row' class="text-center active">
     <td>总计</td>
-    <td>1</td>
+    <td>17</td>
+    <td>17</td>
     <td>0</td>
-    <td>1</td>
     <td>0</td>
-    <td>通过率：0.00%</td>
+    <td>通过率：100.00%</td>
 </tr>
 </table>
 

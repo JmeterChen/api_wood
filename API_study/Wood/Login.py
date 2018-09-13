@@ -18,6 +18,7 @@ class Login(unittest.TestCase):
         self.assertEqual(res.json().get('user_info').get('id'), 378392)
         self.assertEqual(res.json().get('user_info').get('nickname'), "陈柏霖")
 
+
     def test_wood_login02(self):
         """异常登录-账号/密码为空"""
         url = 'https://api.codemao.cn/tiger/accounts/login'

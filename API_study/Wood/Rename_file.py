@@ -1,15 +1,15 @@
 #coding=utf-8
 
-"""先调用wood登录接口"""
 import unittest
 import requests
 
 
 
 class Rename_file(unittest.TestCase):
+    """正常重命名线上作品操作"""
 
     def test_rename_file(self):
-        """正常重命名线上作品操作"""
+
         url_login = 'https://api.codemao.cn/tiger/accounts/login'
         headers = {'Content-Type': 'application/json'}
         data_login = {
