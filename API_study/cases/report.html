@@ -123,9 +123,9 @@ function html_escape(s) {
 <div class='heading'>
 <h1 style="font-family: Microsoft YaHei">测试报告</h1>
 <p class='attribute' style="font-size:16px;"><strong>测试人员 : </strong> </p>
-<p class='attribute' style="font-size:16px;"><strong>开始时间 : </strong> 2018-09-03 20:49:40</p>
-<p class='attribute' style="font-size:16px;"><strong>合计耗时 : </strong> 0:00:00.39</p>
-<p class='attribute' style="font-size:16px;"><strong>测试结果 : </strong> 共 4，通过 3，失败 1</p>
+<p class='attribute' style="font-size:16px;"><strong>开始时间 : </strong> 2018-11-15 14:23:50</p>
+<p class='attribute' style="font-size:16px;"><strong>合计耗时 : </strong> 0:00:00.37</p>
+<p class='attribute' style="font-size:16px;"><strong>测试结果 : </strong> 共 4，通过 4</p>
 
 <p class='description'></p>
 </div>
@@ -133,9 +133,9 @@ function html_escape(s) {
 
 
 <p id='show_detail_line'>
-<a class="btn btn-primary" href='javascript:showCase(0)'>通过率 75.00% </a>
-<a class="btn btn-danger" href='javascript:showCase(1)'>失败 1 </a>
-<a class="btn btn-success" href='javascript:showCase(2)'>成功 3 </a>
+<a class="btn btn-primary" href='javascript:showCase(0)'>通过率 100.00% </a>
+<a class="btn btn-danger" href='javascript:showCase(1)'>失败 0 </a>
+<a class="btn btn-success" href='javascript:showCase(2)'>成功 4 </a>
 <a class="btn btn-info" href='javascript:showCase(3)'>所有 4 </a>
 </p>
 <table id='result_table' class="table table-condensed table-bordered table-hover" style="font-size:14px;">
@@ -156,36 +156,18 @@ function html_escape(s) {
     <td>详细</td>
 </tr>
 
-<tr class='failClass warning'>
-    <td>AddEvent.AddEvent: 新增会议接口</td>
+<tr class='passClass warning'>
+    <td>AddEvent.AddEvent</td>
+    <td class="text-center">1</td>
     <td class="text-center">1</td>
     <td class="text-center">0</td>
-    <td class="text-center">1</td>
     <td class="text-center">0</td>
     <td class="text-center"><a href="javascript:showClassDetail('c1',1)" class="detail" id='c1'>详细</a></td>
 </tr>
 
-<tr id='ft1_1' class='none'>
-    <td class='failCase'><div class='testcase'>test_add_event01: 新增会议-正向流程</div></td>
-    <td colspan='5' align='center'>
-    <!--默认收起错误信息 -Findyou
-    <button id='btn_ft1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_1'>失败</button>
-    <div id='div_ft1_1' class="collapse">  -->
-
-    <!-- 默认展开错误信息 -Findyou -->
-    <button id='btn_ft1_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_1'>失败</button>
-    <div id='div_ft1_1' class="collapse in">
-    <pre>
-    
-Traceback (most recent call last):
-  File "E:\ChenBolin\hit3\cases\AddEvent.py", line 21, in test_add_event01
-    self.assertEqual(res.json().get('error_code'), 0)
-AssertionError: 10002 != 0
-
-
-    </pre>
-    </div>
-    </td>
+<tr id='pt1_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_add_event01: 新增会议-正向流程</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
 </tr>
 
 <tr class='passClass warning'>
@@ -213,7 +195,22 @@ AssertionError: 10002 != 0
 
 <tr id='pt3_1' class='hiddenRow'>
     <td class='passCase'><div class='testcase'>test_register01: 登录正向流程</div></td>
-    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+    <td colspan='5' align='center'>
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt3_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt3_1'>通过</button>
+    <div id='div_pt3_1' class="collapse">  -->
+
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt3_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt3_1'>通过</button>
+    <div id='div_pt3_1' class="collapse in">
+    <pre>
+    
+0
+
+
+    </pre>
+    </div>
+    </td>
 </tr>
 
 <tr id='pt3_2' class='hiddenRow'>
@@ -224,10 +221,10 @@ AssertionError: 10002 != 0
 <tr id='total_row' class="text-center active">
     <td>总计</td>
     <td>4</td>
-    <td>3</td>
-    <td>1</td>
+    <td>4</td>
     <td>0</td>
-    <td>通过率：75.00%</td>
+    <td>0</td>
+    <td>通过率：100.00%</td>
 </tr>
 </table>
 
