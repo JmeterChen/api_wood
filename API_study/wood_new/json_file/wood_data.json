@@ -1,0 +1,94 @@
+{
+    "pro": {
+        "Rename_file": {
+            "headers": {
+                "Content-Type": "application/json"
+            }, 
+            "api": "/tiger/work/works/2598407/rename", 
+            "data": {
+                "work_type": 7, 
+                "name": "kobe_bryant"
+            }
+        }, 
+        "Delete_file": {
+            "headers": {
+                "Content-Type": "application/json"
+            }, 
+            "api": "/tiger/work/%s/permanently"
+        }, 
+        "Open_file": {
+            "headers": {
+                "Content-Type": "application/json"
+            }, 
+            "api": "/tiger/wood/works/%s", 
+            "response": {
+                "work_name": "\u5c0f\u732a\u4f69\u5947"
+            }, 
+            "work_id": {
+                "normal_id": "4255288", 
+                "deleted_id": "3352256", 
+                "unexist_id": "9999999", 
+                "undefine_id": "adcdefg"
+            }
+        }, 
+        "Save_file": {
+            "headers": {
+                "Content-Type": "application/json"
+            }, 
+            "api": "/tiger/work/wood", 
+            "data": {
+                "content": "def function1():    pass", 
+                "language_type": 1, 
+                "name": "API_Test"
+            }
+        }, 
+        "Get_filelist": {
+            "headers": {
+                "Content-Type": "application/json"
+            }, 
+            "api": "/tiger/wood/user/works?", 
+            "para": {
+                "language_type": 1, 
+                "limit": 15, 
+                "page": 1
+            }
+        }, 
+        "host": "https://api.codemao.cn", 
+        "Logout": {
+            "headers": {
+                "Content-Type": "application/json"
+            }, 
+            "api": "/tiger/accounts/logout"
+        }, 
+        "authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjozNzgzOTIsInVzZXJfdHlwZSI6InN0dWRlbnQiLCJqdGkiOiJmMjM2NDNiMi1hNzM2LTQ1MDItYjc1Zi1jMTUxMjEwZDQ5MDYiLCJpYXQiOjE1NDYzNTUxNzB9.ywrVu5HVA76TF9rG3eU-VbHdIbeWYOUiuk-UAu-4AYs", 
+        "work_id_py": 6230909, 
+        "work_id_hex": 6230910, 
+        "Login": {
+            "headers": {
+                "Content-Type": "application/json"
+            }, 
+            "api": "/tiger/accounts/login", 
+            "data": {
+                "password": "123456", 
+                "pid": "n6kwoCSe", 
+                "identity": "18682236985"
+            }, 
+            "response": {
+                "nickname": "\u9648\u67cf\u9716", 
+                "id": 378392
+            }
+        }, 
+        "Search_file": {
+            "headers": {
+                "Content-Type": "application/json"
+            }, 
+            "api": "/tiger/wood/user/works/search?", 
+            "para": {
+                "language_type": 1, 
+                "query": "b-2", 
+                "limit": 15, 
+                "page": 1
+            }
+        }
+    }
+}
