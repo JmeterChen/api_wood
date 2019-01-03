@@ -4,7 +4,7 @@
 
 # from API_study.New_wood2.Cases import A_Login
 
-from Cases import A_Login
+# from Cases import A_Login,E_Rename_file,F_Save_file
 import unittest
 import HTMLTestRunnerCN
 import sys, time, os
@@ -15,6 +15,8 @@ if __name__ == '__main__':
     tmp = os.sep
     suite = unittest.TestSuite()
     # suite.addTest(A_Login.Login('test_01_wood_login01'))
+    # suite.addTest(E_Rename_file.Rename_file('test_13_rename_file01'))
+    # suite.addTest(F_Save_file.Save_file('test_15_save01'))
     
     # suite.addTest(G_Delete_file.Delete_file('test_26_delete_file06'))
     

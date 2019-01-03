@@ -5,20 +5,23 @@
 import os
 import requests
 import unittest
-from Methods import json_dict
+from Methods import json_dict,Parametrized
 
 
-class Search_file(unittest.TestCase):
+class Search_file(Parametrized.ParametrizedTestCase):
     """搜索云端作品"""
 
     @classmethod
     def setUpClass(cls):
         cls_name = cls.__name__
         cls.data_dict = (json_dict.json_to_dict(os.path.dirname(os.path.dirname(__file__)) + \
-                                                '/json_file/wood_data.json'))['pro']
+                                                '/json_file/wood_data.json'))[cls.env]
         cls.url = cls.data_dict['host'] + cls.data_dict[cls_name]['api']
         cls.headers = cls.data_dict[cls_name]['headers']
-        cls.headers['authorization'] = cls.data_dict['authorization']
+        if cls.env == 'pro':
+            cls.headers['authorization'] = cls.data_dict['authorization']
+        else:
+            cls.headers[cls.env + '-authorization'] = cls.data_dict[cls.env + '-authorization']
         cls.para = cls.data_dict[cls_name]['para']
         
     def test_06_search_file01(self):
@@ -28,7 +31,7 @@ class Search_file(unittest.TestCase):
         # print(result)
         self.assertEqual(res.status_code, 200)
         if len(result) == 1:
-            self.assertIn("b-2", result[0]["name"])
+            self.assertIn("进度条", result[0]["name"])
             self.assertEqual(1, result[0]["language_type"])
         elif len(result) > 1:
             self.assertIn("work_id", result[0])
@@ -40,7 +43,10 @@ class Search_file(unittest.TestCase):
     def test_07_search_file02(self):
         """登录态失效--进行作品搜搜"""
         headers = self.headers.copy()
-        headers['authorization'] = 'abcdefg'
+        if self.env == 'pro':
+            headers['authorization'] = 'abcdefg'
+        else:
+            headers[self.env + '-authorization'] = 'abcdefg'
         res = requests.get(url=self.url, params=self.para, headers=headers)
         result = res.json()
         # 添加断言

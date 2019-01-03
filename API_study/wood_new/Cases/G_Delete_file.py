@@ -5,20 +5,23 @@
 import os,time
 import requests
 import unittest
-from Methods import json_dict
+from Methods import json_dict,Parametrized
 
 
-class Delete_file(unittest.TestCase):
+class Delete_file(Parametrized.ParametrizedTestCase):
     """删除线上作品"""
     
     @classmethod
     def setUpClass(cls):
         cls_name = cls.__name__
         cls.data_dict = (json_dict.json_to_dict(os.path.dirname(os.path.dirname(__file__)) + \
-                                                '/json_file/wood_data.json'))['pro']
+                                                '/json_file/wood_data.json'))[cls.env]
         cls.url = cls.data_dict['host'] + cls.data_dict[cls_name]['api']
         cls.headers = cls.data_dict[cls_name]['headers']
-        cls.headers['authorization'] = cls.data_dict['authorization']
+        if cls.env == 'pro':
+            cls.headers['authorization'] = cls.data_dict['authorization']
+        else:
+            cls.headers[cls.env + '-authorization'] = cls.data_dict[cls.env + '-authorization']
         cls.work_id_py = cls.data_dict['work_id_py']
         cls.work_id_hex = cls.data_dict['work_id_hex']
 
@@ -63,7 +66,10 @@ class Delete_file(unittest.TestCase):
     def test_26_delete_file06(self):
         """ 登录态失效- 删除作品"""
         headers = self.headers.copy()
-        headers['authorization'] = ""
+        if self.env == 'pro':
+            headers['authorization'] = ''
+        else:
+            headers[self.env + '-authorization'] = ''
         url = self.url % self.work_id_hex
         res = requests.delete(url=url, headers=headers)
         self.assertEqual(res.status_code, 403)

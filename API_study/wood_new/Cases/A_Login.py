@@ -6,20 +6,20 @@ import os
 import requests
 import unittest
 # from API_study.New_wood2.Methods import json_dict
-from Methods import json_dict
+from Methods import json_dict,Parametrized
 
 
-class Login(unittest.TestCase):
+class Login(Parametrized.ParametrizedTestCase):
     """wood登录接口"""
 
     @classmethod
     def setUpClass(cls):
         cls_name = cls.__name__
         cls.data_dict = json_dict.json_to_dict(os.path.dirname(os.path.dirname(__file__)) + '/json_file/wood_data.json')
-        cls.url = cls.data_dict['pro']['host'] + cls.data_dict['pro'][cls_name]['api']
-        cls.headers = cls.data_dict['pro'][cls_name]['headers'].copy()
-        cls.data = cls.data_dict['pro'][cls_name]['data']
-        cls.response = cls.data_dict['pro'][cls_name]['response']
+        cls.url = cls.data_dict[cls.env]['host'] + cls.data_dict[cls.env][cls_name]['api']
+        cls.headers = cls.data_dict[cls.env][cls_name]['headers'].copy()
+        cls.data = cls.data_dict[cls.env][cls_name]['data']
+        cls.response = cls.data_dict[cls.env][cls_name]['response']
     
     def test_01_wood_login01(self):
         """正常登录-账号密码正确"""
@@ -30,7 +30,14 @@ class Login(unittest.TestCase):
         self.assertEqual(res.json().get('user_info').get('id'), self.response['id'])
         self.assertEqual(res.json().get('user_info').get('nickname'), self.response['nickname'])
         # a = res.cookies.get('authorization')
-        self.data_dict["pro"]['authorization'] = res.cookies.get('authorization')
+        if self.env == 'pro':
+            self.data_dict[self.env]['authorization'] = res.cookies.get('authorization')
+        elif self.env == 'staging':
+            self.data_dict[self.env]['staging-authorization'] = res.cookies.get('staging-authorization')
+        elif self.env == 'dev':
+            self.data_dict[self.env]['dev-authorization'] = res.cookies.get('dev-authorization')
+        else:
+            print('请选择正确的环境地址！')
         # print(self.data_dict)
         json_dict.wirte_to_json(os.path.dirname(os.path.dirname(__file__)) + '/json_file/wood_data.json', self.data_dict)
 

@@ -5,20 +5,23 @@
 import os,time,sys
 import requests
 import unittest
-from Methods import json_dict
+from Methods import json_dict,Parametrized
 
 
-class Save_file(unittest.TestCase):
+class Save_file(Parametrized.ParametrizedTestCase):
     """保存作品接口"""
 
     @classmethod
     def setUpClass(cls):
         cls_name = cls.__name__
         cls.data_dict = json_dict.json_to_dict(os.path.dirname(os.path.dirname(__file__)) + '/json_file/wood_data.json')
-        cls.url = cls.data_dict['pro']['host'] + cls.data_dict['pro'][cls_name]['api']
-        cls.headers = cls.data_dict['pro'][cls_name]['headers'].copy()
-        cls.headers['authorization'] = cls.data_dict['pro']['authorization']
-        cls.data = cls.data_dict['pro'][cls_name]['data']
+        cls.url = cls.data_dict[cls.env]['host'] + cls.data_dict[cls.env][cls_name]['api']
+        cls.headers = cls.data_dict[cls.env][cls_name]['headers'].copy()
+        if cls.env == 'pro':
+            cls.headers['authorization'] = cls.data_dict[cls.env]['authorization']
+        else:
+            cls.headers[cls.env + '-authorization'] = cls.data_dict[cls.env][cls.env + '-authorization']
+        cls.data = cls.data_dict[cls.env][cls_name]['data']
 
     def test_15_save01(self):
         """登录态正常--保存Python类型作品"""
@@ -29,7 +32,7 @@ class Save_file(unittest.TestCase):
         self.assertEqual(res.json().get('name')[:8], 'API_Test')
         # print('ok')
         # 将新生成的作品work_id写入到json，为后面验证删除作品接口做数据
-        self.data_dict['pro']['work_id_py'] = res.json().get('work_id')
+        self.data_dict[self.env]['work_id_py'] = res.json().get('work_id')
         # print(self.data_dict)
         
     def test_16_save02(self):
@@ -44,15 +47,18 @@ class Save_file(unittest.TestCase):
         self.assertEqual(res.status_code, 200)
         self.assertEqual(res.json().get('name')[:8], 'API_Test')
         # 将新生成的作品work_id写入到json，为后面验证删除作品接口做数据
-        self.data_dict['pro']['work_id_hex'] = res.json().get('work_id')
+        self.data_dict[self.env]['work_id_hex'] = res.json().get('work_id')
         # print(self.data_dict)
         json_dict.wirte_to_json(os.path.dirname(os.path.dirname(__file__)) + '/json_file/wood_data.json', self.data_dict)
 
     def test_17_save03(self):
         """登录态失效--进行保存操作"""
-        headers_case = self.headers.copy()  # 这步很重要，没有这步，其他的用例cookie均会被破坏
-        headers_case['authorization'] = 'abcdefg'
-        res = requests.post(url=self.url, headers=headers_case, json=self.data)
+        headers = self.headers.copy()
+        if self.env == 'pro':
+            headers['authorization'] = 'abcdefg'
+        else:
+            headers[self.env + '-authorization'] = 'abcdefg'
+        res = requests.post(url=self.url, headers=headers, json=self.data)
         result = res.json()
         # 因为是无效的cookie，所以返回的状态码应该是401
         self.assertEqual(res.status_code, 403)
