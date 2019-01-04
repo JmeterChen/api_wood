@@ -1,5 +1,6 @@
 class Country:
 
+
     name = 'USA'
     area = 'North'
     sex = None
