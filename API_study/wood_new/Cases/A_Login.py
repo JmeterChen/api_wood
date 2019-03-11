@@ -36,6 +36,8 @@ class Login(Parametrized.ParametrizedTestCase):
             self.data_dict[self.env]['staging-authorization'] = res.cookies.get('staging-authorization')
         elif self.env == 'dev':
             self.data_dict[self.env]['dev-authorization'] = res.cookies.get('dev-authorization')
+        elif self.env == 'test':
+            self.data_dict[self.env]['test-authorization'] = res.cookies.get('test-authorization')
         else:
             print('请选择正确的环境地址！')
         # print(self.data_dict)

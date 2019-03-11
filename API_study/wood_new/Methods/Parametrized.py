@@ -8,4 +8,5 @@ import unittest
 class ParametrizedTestCase(unittest.TestCase):
 	
 	# env = "dev"
-	env = "staging"
+	# env = "staging"
+	env = 'test'
