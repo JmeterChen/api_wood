@@ -28,7 +28,7 @@ if __name__ == '__main__':
     HTMLTestRunnerCN.HTMLTestRunner(stream=open(os.getcwd() + tmp + 'Output' + tmp + 'report.html', 'wb'),
                                     title='Wood接口自动化测试报告', description='wood', tester='Bo_lin Chen').run(suite)
     
-    # 方式3：通过正则指定所有接口
-    suite = unittest.defaultTestLoader.discover(start_dir=os.getcwd() + tmp + 'Cases', pattern='*.py')
-    HTMLTestRunnerCN.HTMLTestRunner(stream=open(os.getcwd() + tmp + 'Output' + tmp + 'report.html', 'wb'),
-                                    title='Wood接口自动化测试报告', description='wood', tester='Bo_lin Chen').run(suite)
+    # # 方式3：通过正则指定所有接口
+    # suite = unittest.defaultTestLoader.discover(start_dir=os.getcwd() + tmp + 'Cases', pattern='*.py')
+    # HTMLTestRunnerCN.HTMLTestRunner(stream=open(os.getcwd() + tmp + 'Output' + tmp + 'report.html', 'wb'),
+    #                                 title='Wood接口自动化测试报告', description='wood', tester='Bo_lin Chen').run(suite)

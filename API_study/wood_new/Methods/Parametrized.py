@@ -9,4 +9,5 @@ class ParametrizedTestCase(unittest.TestCase):
 	
 	# env = "dev"
 	# env = "staging"
-	env = 'test'
+	# env = 'test'
+	env = 'pro'
