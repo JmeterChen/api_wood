@@ -2,7 +2,7 @@
 # __author__ = 'Bo_lin Chen'
 # Date: 2018/12/28
 
-import os,time,sys
+import os,time
 import requests
 import unittest
 from Methods import json_dict,Parametrized

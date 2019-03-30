@@ -4,9 +4,9 @@
 
 import os
 import requests
-import unittest
 from Methods import json_dict,Parametrized
-import util, time
+import time
+from Cases import util
 
 
 class Rename_file(Parametrized.ParametrizedTestCase):
@@ -15,7 +15,7 @@ class Rename_file(Parametrized.ParametrizedTestCase):
     @classmethod
     def setUpClass(cls):
         cls_name = cls.__name__
-        cls.data_dict = (json_dict.json_to_dict(os.path.dirname(os.path.dirname(__file__)) + \
+        cls.data_dict = (json_dict.json_to_dict(os.path.dirname(os.path.dirname(__file__)) +
                                                 '/json_file/wood_data.json'))[cls.env]
         cls.url = (cls.data_dict['host'] + cls.data_dict[cls_name]['api']) % cls.data_dict[cls_name]['work_id']
         cls.headers = cls.data_dict[cls_name]['headers']

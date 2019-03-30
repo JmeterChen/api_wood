@@ -30,7 +30,7 @@ class ParametrizedTestCase(unittest.TestCase):
 
 # 给定json数据路径 读取json并返回字典
 def json_to_dict(path):
-    with open(path, 'r') as jp:
+    with open(path, 'r', encoding='utf-8') as jp:
         data = json.loads(jp.read())
         return data
 

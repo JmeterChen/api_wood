@@ -4,7 +4,6 @@
 
 import os,time
 import requests
-import unittest
 from Methods import json_dict,Parametrized
 
 

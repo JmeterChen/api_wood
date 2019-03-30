@@ -6,9 +6,10 @@
 
 # from Cases import A_Login,E_Rename_file,F_Save_file
 import unittest
-import HTMLTestRunnerCN
+import HTMLTestReportCN
 import sys, time, os
 from collections import Iterable
+from Methods import Parametrized
 
 
 if __name__ == '__main__':
@@ -22,13 +23,22 @@ if __name__ == '__main__':
     # suite.addTest(G_Delete_file.Delete_file('test_26_delete_file06'))
     
     # 方式2：通过case文件名指定接口测试
-    suite = unittest.defaultTestLoader.discover(start_dir=os.getcwd() + tmp + 'Cases', pattern='A_Login.py')
-    suite2 = unittest.defaultTestLoader.discover(start_dir=os.getcwd() + tmp + 'Cases', pattern='F_Save_file.py')
-    suite.addTests(suite2)
-    HTMLTestRunnerCN.HTMLTestRunner(stream=open(os.getcwd() + tmp + 'Output' + tmp + 'report.html', 'wb'),
-                                    title='Wood接口自动化测试报告', description='wood', tester='Bo_lin Chen').run(suite)
-    
-    # # 方式3：通过正则指定所有接口
-    # suite = unittest.defaultTestLoader.discover(start_dir=os.getcwd() + tmp + 'Cases', pattern='*.py')
-    # HTMLTestRunnerCN.HTMLTestRunner(stream=open(os.getcwd() + tmp + 'Output' + tmp + 'report.html', 'wb'),
-    #                                 title='Wood接口自动化测试报告', description='wood', tester='Bo_lin Chen').run(suite)
+    # suite = unittest.defaultTestLoader.discover(start_dir=os.getcwd() + tmp + 'Cases', pattern='A_Login.py')
+    # suite = unittest.defaultTestLoader.discover(start_dir=os.getcwd() + tmp + 'Cases', pattern='B_Get_filelist.py')
+    # suite = unittest.defaultTestLoader.discover(start_dir=os.getcwd() + tmp + 'Cases', pattern='C_Search_file.py')
+    # suite = unittest.defaultTestLoader.discover(start_dir=os.getcwd() + tmp + 'Cases', pattern='D_Open_file.py')
+    # suite = unittest.defaultTestLoader.discover(start_dir=os.getcwd() + tmp + 'Cases', pattern='E_Rename_file.py')
+    # suite = unittest.defaultTestLoader.discover(start_dir=os.getcwd() + tmp + 'Cases', pattern='F_Save_file.py')
+    # suite = unittest.defaultTestLoader.discover(start_dir=os.getcwd() + tmp + 'Cases', pattern='G_Delete_file.py')
+    # suite2 = unittest.defaultTestLoader.discover(start_dir=os.getcwd() + tmp + 'Cases', pattern='F_Save_file.py')
+    # suite.addTests(suite2)
+    # HTMLTestReportCN.HTMLTestRunner(stream=open(os.getcwd() + tmp + 'Output' + tmp + 'report.html', 'wb'),
+    #                                 title='Wood接口自动化测试报告', description=Parametrized.ParametrizedTestCase.env+"环境测试报告",
+    #                                 tester='Bo_lin Chen').run(suite)
+
+    # 方式3：通过正则指定所有接口
+    suite = unittest.defaultTestLoader.discover(start_dir=os.getcwd() + tmp + 'Cases', pattern='*.py')
+    HTMLTestReportCN.HTMLTestRunner(stream=open(os.getcwd() + tmp + 'Output' + tmp + 'report.html', 'wb'),
+                                    title='Wood接口自动化测试报告', description=Parametrized.ParametrizedTestCase.env+"环境测试报告",
+                                    tester='Bo_lin Chen').run(suite)
+    # print(suite)

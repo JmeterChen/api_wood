@@ -4,9 +4,8 @@
 
 import os
 import requests
-import unittest
 # from API_study.New_wood2.Methods import json_dict
-from Methods import json_dict,Parametrized
+from Methods import json_dict, Parametrized
 
 
 class Login(Parametrized.ParametrizedTestCase):
