@@ -7,13 +7,13 @@ class Get_filelist(unittest.TestCase):
     """拉取云端作品列表"""
     def test_get_filelist(self):
         """ 正常数据进行拉取作品列表操作"""
-        url_login = 'https://api.codemao.cn/tiger/accounts/login'
+        url_login = 'https://api.maocode.cn/tiger/accounts/login'
         headers = {'Content-Type': 'application/json'}
         data_login = {"identity": "18682236985", "password": "123456", "pid": "n6kwoCSe"}
         res_login = requests.post(url=url_login, headers=headers, json=data_login)
         """这是获取有效cookie """
         res_cookie = res_login.cookies.get('authorization')
-        url = 'https://api.codemao.cn/tiger/wood/user/works?'
+        url = 'https://api.maocode.cn/tiger/wood/user/works?'
         '''将上面获取的cookie加入到请求头'''
         headers['authorization'] = res_cookie
         # 正常参数
@@ -37,13 +37,13 @@ class Get_filelist(unittest.TestCase):
 
     def test_get_filelist02(self):
         # """ 正常数据进行拉取作品列表操作"""
-        # url_login = 'https://api.codemao.cn/tiger/accounts/login'
+        # url_login = 'https://api.maocode.cn/tiger/accounts/login'
         headers = {'Content-Type': 'application/json'}
         # data_login = {"identity": "18682236985", "password": "123456", "pid": "n6kwoCSe"}
         # res_login = requests.post(url=url_login, headers=headers, json=data_login)
         # """这是获取有效cookie """
         # res_cookie = res_login.cookies.get('authorization')
-        url = 'https://api.codemao.cn/tiger/wood/user/works?'
+        url = 'https://api.maocode.cn/tiger/wood/user/works?'
         # '''模式无效cookie进行拉取作品列表'''
         res_cookie = 'abcdefg'
         headers['authorization'] = res_cookie

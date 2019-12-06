@@ -6,7 +6,7 @@ import unittest
 class Login(unittest.TestCase):
     """wood登录接口"""
 
-    url = 'https://api.codemao.cn/tiger/accounts/login'
+    url = 'https://api.maocode.cn/tiger/accounts/login'
     headers = {'Content-Type': 'application/json'}
     data = {
             "identity": "18682236985",

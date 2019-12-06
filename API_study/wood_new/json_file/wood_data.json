@@ -44,7 +44,7 @@
                 "page": 1
             }
         },
-        "host": "https://test-api.codemao.cn",
+        "host": "https://test-api.maocode.cn",
         "Logout": {
             "headers": {
                 "Content-Type": "application/json"
@@ -137,7 +137,7 @@
                 "page": 1
             }
         },
-        "host": "https://api.codemao.cn",
+        "host": "https://api.maocode.cn",
         "Logout": {
             "headers": {
                 "Content-Type": "application/json"
@@ -230,7 +230,7 @@
                 "page": 1
             }
         },
-        "host": "https://backend-test.codemao.cn",
+        "host": "https://backend-test.maocode.cn",
         "Logout": {
             "headers": {
                 "Content-Type": "application/json"
@@ -323,7 +323,7 @@
                 "page": 1
             }
         },
-        "host": "https://backend-dev.codemao.cn",
+        "host": "https://backend-dev.maocode.cn",
         "Logout": {
             "headers": {
                 "Content-Type": "application/json"

@@ -6,13 +6,13 @@ import unittest
 
 class Get_filelist(unittest.TestCase):
     """拉取云端作品列表"""
-    url_login = 'https://api.codemao.cn/tiger/accounts/login'
+    url_login = 'https://api.maocode.cn/tiger/accounts/login'
     headers = {'Content-Type': 'application/json'}
     data_login = {"identity": "18682236985", "password": "123456", "pid": "n6kwoCSe"}
     res_login = requests.post(url=url_login, headers=headers, json=data_login)
     """这是获取有效cookie """
     res_cookie = res_login.cookies.get('authorization')
-    url = 'https://api.codemao.cn/tiger/wood/user/works?'
+    url = 'https://api.maocode.cn/tiger/wood/user/works?'
 
     # 正常参数
     para = {

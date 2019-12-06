@@ -9,7 +9,7 @@ class Logout(unittest.TestCase):
     """退出登录接口"""
 
 
-    url_login = 'https://api.codemao.cn/tiger/accounts/login'
+    url_login = 'https://api.maocode.cn/tiger/accounts/login'
     headers = {'Content-Type': 'application/json'}
     data_login = {"identity": "18682236985", "password": "123456", "pid": "n6kwoCSe"}
     res_login = requests.post(url=url_login, headers=headers, json=data_login)
@@ -22,7 +22,7 @@ class Logout(unittest.TestCase):
     def test_26_logout(self):
         """ 登录态正常--退出登录操作"""
 
-        url = "https://api.codemao.cn/tiger/accounts/logout"
+        url = "https://api.maocode.cn/tiger/accounts/logout"
         res = requests.post(url=url, headers=self.headers)
         self.assertEquals(res.status_code, 204)
 
@@ -32,6 +32,6 @@ class Logout(unittest.TestCase):
 
         headers = self.headers.copy()
         headers['authorization'] = ''
-        url = "https://api.codemao.cn/tiger/accounts/logout"
+        url = "https://api.maocode.cn/tiger/accounts/logout"
         res = requests.post(url=url, headers=headers)
         self.assertEquals(res.status_code, 204)

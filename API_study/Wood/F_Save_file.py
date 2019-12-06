@@ -6,13 +6,13 @@ import unittest,time
 class Save_file(unittest.TestCase):
     """保存作品"""
 
-    url_login = 'https://api.codemao.cn/tiger/accounts/login'
+    url_login = 'https://api.maocode.cn/tiger/accounts/login'
     headers = {'Content-Type': 'application/json'}
     data_login = {"identity": "18682236985", "password": "123456", "pid": "n6kwoCSe"}
     res_login = requests.post(url=url_login, headers=headers, json=data_login)
     """这是获取有效cookie """
     res_cookie = res_login.cookies.get('authorization')
-    url = 'https://api.codemao.cn/tiger/work/wood'
+    url = 'https://api.maocode.cn/tiger/work/wood'
     '''将上面获取的cookie加入到请求头'''
     headers['authorization'] = res_cookie
 
@@ -72,13 +72,13 @@ class Save_file(unittest.TestCase):
 
     # def test_save05(self):
     #     """ 使用登录接口获取此时登录有效cookie"""
-    #     url_login = 'https://api.codemao.cn/tiger/accounts/login'
+    #     url_login = 'https://api.maocode.cn/tiger/accounts/login'
     #     headers = {'Content-Type': 'application/json'}
     #     data_login = {"identity": "18682236985", "password": "123456", "pid": "n6kwoCSe"}
     #     res_login = requests.post(url=url_login, headers=headers, json=data_login)
     #     """这是获取有效cookie """
     #     res_cookie = res_login.cookies.get('authorization')
-    #     url = 'https://api.codemao.cn/tiger/work/wood'
+    #     url = 'https://api.maocode.cn/tiger/work/wood'
     #     '''将上面获取的cookie加入到请求头'''
     #     headers['authorization'] = res_cookie
     #

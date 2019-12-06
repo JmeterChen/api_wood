@@ -5,7 +5,7 @@ import unittest
 class Search_file(unittest.TestCase):
     """搜索云端作品"""
 
-    url_login = 'https://api.codemao.cn/tiger/accounts/login'
+    url_login = 'https://api.maocode.cn/tiger/accounts/login'
     headers = {'Content-Type': 'application/json'}
     data_login = {
             "identity": "18682236985",
@@ -15,7 +15,7 @@ class Search_file(unittest.TestCase):
     res_login = requests.post(url=url_login, headers=headers, json=data_login)
     """这是获取有效cookie """
     res_cookie = res_login.cookies.get('authorization')
-    url = 'https://api.codemao.cn/tiger/wood/user/works/search?'
+    url = 'https://api.maocode.cn/tiger/wood/user/works/search?'
     para = {
         "query": "b-2",
         "language_type": 1,

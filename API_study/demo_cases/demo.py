@@ -106,7 +106,7 @@ import jsonpath
 #     "error_code": 0
 # }
 
-# res = requests.post('https://api.codemao.cn/tiger/accounts/login',
+# res = requests.post('https://api.maocode.cn/tiger/accounts/login',
 #                     json={
 #                         "identity": "18682236985",
 #                         "password": "123456",

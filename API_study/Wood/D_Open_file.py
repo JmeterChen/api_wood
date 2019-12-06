@@ -5,7 +5,7 @@ import unittest
 class Open_file(unittest.TestCase):
     """打开云端作品"""
 
-    url_login = 'https://api.codemao.cn/tiger/accounts/login'
+    url_login = 'https://api.maocode.cn/tiger/accounts/login'
     headers = {'Content-Type': 'application/json'}
     data_login = {
             "identity": "18682236985",
@@ -16,7 +16,7 @@ class Open_file(unittest.TestCase):
     """这是获取有效cookie """
     res_cookie = res_login.cookies.get('authorization')
 
-    url = 'https://api.codemao.cn/tiger/wood/works/4255288'  # 小猪佩奇
+    url = 'https://api.maocode.cn/tiger/wood/works/4255288'  # 小猪佩奇
     '''将上面获取的cookie加入到请求头'''
     headers['authorization'] = res_cookie
 
@@ -34,7 +34,7 @@ class Open_file(unittest.TestCase):
         """ 正常登录态-打开已被删除作品"""
 
         # 3352256 该作品已被删除
-        self.url = 'https://api.codemao.cn/tiger/wood/works/3352256'
+        self.url = 'https://api.maocode.cn/tiger/wood/works/3352256'
         res = requests.get(url=self.url, headers=self.headers)
         result = res.json()
         # 添加断言
@@ -46,7 +46,7 @@ class Open_file(unittest.TestCase):
         """登录态正常-打开未存在过的作品"""
 
         # 9999999 该作品未生成
-        self.url = 'https://api.codemao.cn/tiger/wood/works/9999999'
+        self.url = 'https://api.maocode.cn/tiger/wood/works/9999999'
         res = requests.get(url=self.url, headers=self.headers)
         result = res.json()
         # 添加断言
@@ -58,7 +58,7 @@ class Open_file(unittest.TestCase):
         """登录态正常--打开作品id不符合规则的作品"""
 
         # adcdefg 该作品id不符合规则
-        self.url = 'https://api.codemao.cn/tiger/wood/works/adcdefg'
+        self.url = 'https://api.maocode.cn/tiger/wood/works/adcdefg'
         res = requests.get(url=self.url, headers=self.headers)
         result = res.json()
         # 添加断言
@@ -70,7 +70,7 @@ class Open_file(unittest.TestCase):
         """登录态失效--打开作品"""
         headers = self.headers.copy()
         headers['authorization'] = 'abcdefg'
-        self.url = 'https://api.codemao.cn/tiger/wood/works/1840852'
+        self.url = 'https://api.maocode.cn/tiger/wood/works/1840852'
         res = requests.get(url=self.url, headers=headers)
         result = res.json()
         # 添加断言

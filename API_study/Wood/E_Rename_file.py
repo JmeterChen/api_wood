@@ -7,7 +7,7 @@ import util,time
 class Rename_file(unittest.TestCase):
     """重命名线上作品操作"""
 
-    url_login = 'https://api.codemao.cn/tiger/accounts/login'
+    url_login = 'https://api.maocode.cn/tiger/accounts/login'
     headers = {'Content-Type': 'application/json'}
     data_login = {
             "identity": "18682236985",
@@ -19,7 +19,7 @@ class Rename_file(unittest.TestCase):
     res_cookie = res_login.cookies.get('authorization')
     # print(res_cookie)
 
-    url = 'https://api.codemao.cn/tiger/work/works/2598407/rename'
+    url = 'https://api.maocode.cn/tiger/work/works/2598407/rename'
     '''将上面获取的cookie加入到请求头'''
     headers['authorization'] = res_cookie
     data = {
